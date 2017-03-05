@@ -30,21 +30,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Krey.is</a>
+                    <a class="navbar-brand" href="{% url 'Home' %}">Krey.is</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         {% if user.is_authenticated %}
-                        <li><a href="/torrent/">Torrents</a></li>
+                        <li><a href="{% url 'Torrents' %}">Torrents</a></li>
                         <li><a href="http://dl.krey.is/" >Transmission</a></li>
                         <li><a href="https://plex.krey.is/">Plex</a></li>
                         {% endif %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right" >
                         {% if user.is_authenticated %}
-                        <li><a href="/logout/" >Log Out</a></li>
+                        <li><a href="{% url 'Logout' %}" >Log Out</a></li>
                         {% else %}
-                        <li><a href="/login/" >Log In</a></li>
+                        <li><a href="{% url 'Login' %}" >Log In</a></li>
                         {% endif %}
                     </ul>
                 </div><!--/.nav-collapse -->
