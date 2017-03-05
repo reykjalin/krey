@@ -6,4 +6,4 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    return HttpResponse("This will be the torrent index")
+    return render(request, 'torrent/index.html')
