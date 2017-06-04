@@ -1,0 +1,16 @@
+
+{% extends "home/base.html" %}
+
+{% block content %}
+
+Work in progress...
+
+<div class="torrent-group" >
+    <form action="/torrent/" method="post" id="torrent-submit-form">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+{% endblock %}

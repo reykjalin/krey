@@ -1,0 +1,23 @@
+
+{% extends "home/base.html" %}
+
+{% block content %}
+
+<table style="width: 100%">
+    <tr>
+        {% for l in header %}
+            <th>{{l}}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        {% for r in data %}
+            {% for l in r %}
+                <td>{{l}}</td>
+            {% endfor %}
+        {% endfor %}
+    </tr>
+</table>
+
+<a href="torrent/upload" >Upload torrent</a>
+
+{% endblock %}
