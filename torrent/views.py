@@ -15,8 +15,10 @@ def index(request):
 
 @login_required
 def list(request):
+    user = subprocess.check_output(['cat', '/etc/tduser']).decode().strip()
+    pw = subprocess.check_output(['cat', '/etc/tdpw']).decode().strip()
     # TODO: Fix sanitation! What if 2 space in torrent name?
-    tlist = subprocess.check_output(['transmission-remote', '-l']).decode()
+    tlist = subprocess.check_output(['transmission-remote', '-n', user + ':' + pw, '-l']).decode()
     tlines = tlist.split('\n')
     one_space = []
     for tl in tlines:
