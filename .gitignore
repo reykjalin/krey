@@ -94,3 +94,6 @@ ENV/
 *~
 #*#
 .projectile
+
+# DJANGO FILES
+static-collection
