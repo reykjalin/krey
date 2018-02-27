@@ -20,6 +20,7 @@ def list(request):
     # TODO: Fix sanitation! What if 2 space in torrent name?
     tlist = subprocess.check_output(['transmission-remote', '-n', user + ':' + pw, '-l']).decode()
     tlines = tlist.split('\n')
+    print(tlines)
     one_space = []
     for tl in tlines:
         line = ''
@@ -39,9 +40,15 @@ def list(request):
             else:
                 line = line + c
                 first_space = True
-        one_space.append(line.split('  '))
+        # Slice away empty first column
+        line_check = line.split('  ')
+        if line_check[0] == '':
+            line_check = line_check[1:]
+        one_space.append(line_check)
 
 
+    one_space[-2].insert(0, '')
+    one_space[-2].insert(3, '')
     print(one_space)
     header = one_space[0]
     data   = one_space[1:]
